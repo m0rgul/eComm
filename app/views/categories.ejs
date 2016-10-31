@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org">
+
+<head>
+    <% include templates/head.ejs %>
+</head>
+
+<body ng-app="categories">
+<a href="/">Home</a>
+<a href="/categories">Categories</a>
+<a href="/products">Products</a>
+<h1>Categories</h1>
+<section class="catList" ng-controller="listCategories">
+    <ul>
+        <li ng-repeat="cat in categories" ng-click="catDetails(cat._id)">
+            <a href="#">
+                {{cat.name}}
+            </a>
+        </li>
+    </ul>
+
+    <md-button class="md-raised" ng-click="newCategory()">Add Category</md-button>
+</section>
+
+
+</body>
+<% include templates/jsdefaults.ejs %>
+<script src="/js/angular/categories/categories.client.controller.js"></script>
+</html>

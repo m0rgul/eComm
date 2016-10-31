@@ -1,0 +1,69 @@
+<md-dialog aria-label="New Product" class="categoryPopUp">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Add product</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="fa fa-times fa-2x" aria-label="Close dialog"></i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <h2>Add new product</h2>
+
+            <form name="addProd" novalidate>
+                <md-input-container class="md-block">
+                    <label>Product name</label>
+                    <input md-maxlength="30" required name="name" ng-model="product.name">
+                    <div ng-messages="addProd.name.$error">
+                        <div ng-message="required">This is required.</div>
+                        <div ng-message="md-maxlength">The name must be less than 30 characters long.</div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Product description</label>
+                    <textarea ng-model="product.description" md-maxlength="150" rows="5" md-select-on-focus=""
+                              name="description"></textarea>
+                    <div ng-messages="addProd.description.$error">
+                        <div ng-message="md-maxlength">Description is too long. Max 150 characters.</div>
+                    </div>
+                </md-input-container>
+                <div class="layout-align-start-stretch layout-row flex" flex="" layout-align="start" layout="row">
+                    <md-input-container class="flex-75 ng-animate md-input-invalid" flex="75" data-ng-animate="2">
+                        <label>Product price</label>
+                        <input type="number" required name="price" ng-model="product.price">
+                        <div ng-messages="addProd.price.$error">
+                            <div ng-message="required">This is required.</div>
+                            <div ng-message="invalid-number">Please enter a number.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="flex-25 ng-animate md-input-invalid" flex="25" data-ng-animate="2">
+                        <md-select ng-model="product.currency" required name="currency" placeholder="Currency">
+                            <md-option value="EUR">EUR</md-option>
+                            <md-option value="USD">USD</md-option>
+                            <md-option value="RON">RON</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+            </form>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+
+        <span flex></span>
+        <md-button ng-click="addCategory()" ng-disabled="addCat.$invalid" ng-show="!update">
+            Add Category
+        </md-button>
+        <md-button ng-click="addCategory()" ng-disabled="addCat.$invalid" ng-show="update">
+            Update Category
+        </md-button>
+        <md-button ng-click="deleteCategory(category)" ng-show="update">
+            Delete Category
+        </md-button>
+        <md-button ng-click="cancel()">
+            Cancel
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>
+

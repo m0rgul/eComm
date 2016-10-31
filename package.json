@@ -1,0 +1,23 @@
+{
+  "name": "ecomm",
+  "version": "0.0.1",
+  "description": "eComm website for Mom",
+  "main": "index.js",
+  "scripts": {
+    "test": "set DEBUG=eComm & npm start"
+  },
+  "author": "m0rgul",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^1.5.0",
+    "body-parser": "^1.14.2",
+    "ejs": "^2.5.2",
+    "express": "^4.13.3",
+    "express-session": "^1.14.1",
+    "mongoose": "^4.6.0",
+    "mongoose-shortid-nodeps": "^0.6.5",
+    "morgan": "^1.6.1",
+    "multer": "^1.1.0",
+    "request": "^2.67.0"
+  }
+}

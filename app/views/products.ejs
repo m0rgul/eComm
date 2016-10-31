@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org">
+
+<head>
+    <% include templates/head.ejs %>
+</head>
+
+<body ng-app="products">
+<a href="/">Home</a>
+<a href="/categories">Categories</a>
+<a href="/products">Products</a>
+<section class="main-section"></section>
+<h1>Products</h1>
+<section class="prodList" ng-controller="listProducts">
+    {{test}}
+    <ul>
+        <li ng-repeat="prod in products">
+            <a href="#">
+                {{prod.name}}
+            </a>
+        </li>
+    </ul>
+
+    <md-button class="md-raised" ng-click="newProduct()">Add Product</md-button>
+</section>
+</body>
+<% include templates/jsdefaults.ejs %>
+<script src="/js/angular/products/products.client.controller.js"></script>
+</html>

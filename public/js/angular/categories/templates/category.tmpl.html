@@ -1,0 +1,50 @@
+<md-dialog aria-label="New Category" class="categoryPopUp">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2 ng-hide="update">Add product</h2>
+            <h2 ng-show="update">Update product</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <i class="fa fa-times fa-2x" aria-label="Close dialog"></i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="md-dialog-content">
+                <h2>Add new category</h2>
+
+            <form name="addCat" novalidate>
+                <md-input-container class="md-block">
+                    <label>Category name</label>
+                    <input md-maxlength="30" required name="name" ng-model="category.name">
+                    <div ng-messages="addCat.name.$error">
+                        <div ng-message="required">This is required.</div>
+                        <div ng-message="md-maxlength">The name must be less than 30 characters long.</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>Category description</label>
+                    <textarea ng-model="category.description" md-maxlength="150" rows="5" md-select-on-focus=""></textarea>
+                </md-input-container>
+            </form>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+
+        <span flex></span>
+        <md-button ng-click="addCategory()" ng-disabled="addCat.$invalid" ng-show="!update">
+            Add Category
+        </md-button>
+        <md-button ng-click="addCategory()" ng-disabled="addCat.$invalid" ng-show="update">
+            Update Category
+        </md-button>
+        <md-button ng-click="deleteCategory(category)" ng-show="update">
+            Delete Category
+        </md-button>
+        <md-button ng-click="cancel()">
+            Cancel
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>
+
