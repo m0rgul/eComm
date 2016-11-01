@@ -1,5 +1,5 @@
 (function(){
     function test(){
-        return true;
+        return false;
     }
 })();
